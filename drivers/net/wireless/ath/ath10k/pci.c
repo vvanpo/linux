@@ -58,7 +58,7 @@ MODULE_PARM_DESC(reset_mode, "0: auto, 1: warm only (default: 0)");
 #define ATH10K_PCI_NUM_WARM_RESET_ATTEMPTS 3
 
 #define QCA988X_2_0_DEVICE_ID	(0x003c)
-#define QCA6174_2_1_DEVICE_ID	(0x003e)
+#define QCA6174_2_1_DEVICE_ID	(0x0041)
 #define QCA99X0_2_0_DEVICE_ID	(0x0040)
 
 static const struct pci_device_id ath10k_pci_id_table[] = {
@@ -2922,6 +2922,7 @@ static int ath10k_pci_probe(struct pci_dev *pdev,
 	ar_pci->pdev = pdev;
 	ar_pci->dev = &pdev->dev;
 	ar_pci->ar = ar;
+    ar->dev_id = pci_dev->device;
 
 	if (pdev->subsystem_vendor || pdev->subsystem_device)
 		scnprintf(ar->spec_board_id, sizeof(ar->spec_board_id),
