@@ -231,6 +231,7 @@ static int ath10k_init_configure_target(struct ath10k *ar)
 		return ret;
 	}
 
+	printk("This the patched kernel -Anish");
     ret = ath10k_bmi_write32(ar, hi_hci_uart_pwr_mgmt_params_ext, ar->dev_id);
     if (ret) {
         ath10k_err(ar, "failed to set pwr_mgmt_params: %d\n", ret);
